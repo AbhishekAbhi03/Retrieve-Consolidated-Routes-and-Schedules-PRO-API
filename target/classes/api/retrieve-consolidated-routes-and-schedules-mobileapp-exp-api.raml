@@ -1,0 +1,80 @@
+#%RAML 1.0
+title: Retrieve-Consolidated-Routes-and-Schedules-PRO-API
+description: This RAML file will retrieve consolidated Routes and Schedules for process api
+
+traits:
+  routesHeaders: !include /routes/traits/headers-trait.raml
+  schedulesHeaders: !include /schedules/traits/headers-trait.raml
+
+/booking:
+  /{transportType}:
+    /routes:
+      is: [routesHeaders]
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                type: !include /routes/dataTypes/routes-dataType.raml
+                example: !include /routes/examples/example-200response.json
+          400:
+            body:
+              application/json:
+                type: !include /common/dataTypes/common-dataType.raml
+                example: !include /common/examples/example-400Response.json
+                 
+          404:
+            body:
+              application/json:
+                type: !include /common/dataTypes/common-dataType.raml
+                example: !include /common/examples/example-404Response.json
+                       
+          500:
+            body:
+              application/json:
+                type: !include /common/dataTypes/common-dataType.raml
+                example: !include /common/examples/example-500Response.json
+
+
+    /schedules:
+      is: [schedulesHeaders]
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                type: !include /schedules/dataTypes/schedules-dataType.raml
+                example: !include /schedules/examples/example-200Response.json
+          400:
+            body:
+              application/json:
+                type: !include /common/dataTypes/common-dataType.raml
+                example: !include /common/examples/example-400Response.json
+                 
+          404:
+            body:
+              application/json:
+                type: !include /common/dataTypes/common-dataType.raml
+                example: !include /common/examples/example-404Response.json
+                       
+          500:
+            body:
+              application/json:
+                type: !include /common/dataTypes/common-dataType.raml
+                example: !include /common/examples/example-500Response.json      
+                                                
+                                    
+                                    
+                                
+                                
+                            
+
+                          
+
+                                           
+                      
+
+                                  
+                  
+                            
+                                    
